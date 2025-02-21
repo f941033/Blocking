@@ -8,6 +8,7 @@ TagManager:
   - YellowDoor
   - OrangeCard
   - OrangeDoor
+  - Linterna
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ public class CardController : MonoBehaviour
     bool yellowCard = false;
     bool orangeCard = false;
     public GameObject yellowDoor, orangeDoor;
+    public GameObject linterna;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,8 +33,6 @@ public class CardController : MonoBehaviour
             }
         }
 
-
-
         if (other.tag == "OrangeCard")
         {
             orangeCard = true;
@@ -46,6 +45,12 @@ public class CardController : MonoBehaviour
             {
                 orangeDoor.GetComponent<Animator>().Play("AbrirPuertaNaranja");
             }
+        }
+
+        if (other.tag == "Linterna")
+        {
+            Destroy(other.gameObject);
+            linterna.SetActive(true);
         }
     }
 }
