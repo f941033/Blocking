@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CardController : MonoBehaviour
@@ -9,6 +10,7 @@ public class CardController : MonoBehaviour
     public GameObject mirilla, visorTraje;
     bool mirillaEnPantalla=false;
     public GameObject proyectil;
+    public TextMeshProUGUI textoFinal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,6 +86,7 @@ public class CardController : MonoBehaviour
         {
             Destroy(other.gameObject);
             visorTraje.SetActive(true);
+            textoFinal.text = "FIN DEL JUEGO";
         }
     }
 }
