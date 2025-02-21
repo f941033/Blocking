@@ -9,6 +9,10 @@ TagManager:
   - OrangeCard
   - OrangeDoor
   - Linterna
+  - Botiquin
+  - Taser
+  - bala
+  - Dron
   layers:
   - Default
   - TransparentFX
