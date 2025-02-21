@@ -13,6 +13,7 @@ TagManager:
   - Taser
   - bala
   - Dron
+  - Traje
   layers:
   - Default
   - TransparentFX

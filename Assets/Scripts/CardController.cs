@@ -6,7 +6,7 @@ public class CardController : MonoBehaviour
     bool orangeCard = false;
     public GameObject yellowDoor, orangeDoor;
     public GameObject linterna;
-    public GameObject mirilla;
+    public GameObject mirilla, visorTraje;
     bool mirillaEnPantalla=false;
     public GameObject proyectil;
 
@@ -78,6 +78,12 @@ public class CardController : MonoBehaviour
             Destroy(other.gameObject);
             mirillaEnPantalla = !mirillaEnPantalla;
             mirilla.SetActive(mirillaEnPantalla);
+        }
+
+        if (other.tag == "Traje")
+        {
+            Destroy(other.gameObject);
+            visorTraje.SetActive(true);
         }
     }
 }
