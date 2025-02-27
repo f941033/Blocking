@@ -10,7 +10,7 @@ public class CardController : MonoBehaviour
     public GameObject mirilla, visorTraje;
     bool mirillaEnPantalla=false;
     public GameObject proyectil;
-    public TextMeshProUGUI textoFinal;
+    public TextMeshProUGUI textoFinal, textoPuertaAmarilla;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,7 +46,8 @@ public class CardController : MonoBehaviour
         {
             if (yellowCard)
             {
-                yellowDoor.GetComponent<Animator>().Play("AbrirPuerta");    
+                yellowDoor.GetComponent<Animator>().Play("AbrirPuertaAmarilla"); 
+                textoPuertaAmarilla.enabled = false;
             }
         }
 
