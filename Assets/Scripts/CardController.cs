@@ -5,11 +5,12 @@ public class CardController : MonoBehaviour
 {
     bool yellowCard = false;
     bool orangeCard = false;
-    public GameObject yellowDoor, orangeDoor;
+    bool tarjetaBlanca = false;
+    public GameObject yellowDoor, orangeDoor, puertaTraje1, puertaTraje2;
     public GameObject linterna;
     public GameObject mirilla, visorTraje;
     bool mirillaEnPantalla=false;
-    public GameObject proyectil, textoPuertaAmarilla, textoPuertaNaranja, textoPressE;
+    public GameObject dron, proyectil, textoPuertaAmarilla, textoPuertaNaranja, textoPressE;
     public TextMeshProUGUI textoFinal;
     bool tengoTaser = false;
 
@@ -43,12 +44,14 @@ public class CardController : MonoBehaviour
             yellowCard = true;
             Destroy(other.gameObject);
         }
+
         if (other.tag == "YellowDoor")
         {
             if (yellowCard)
             {
                 yellowDoor.GetComponent<Animator>().Play("AbrirPuertaAmarilla"); 
                 textoPuertaAmarilla.SetActive(false) ;
+                dron.GetComponent<AudioSource>().Stop();
             }
         }
 
@@ -93,6 +96,29 @@ public class CardController : MonoBehaviour
             Destroy(other.gameObject);
             visorTraje.SetActive(true);
             textoFinal.text = "FIN DEL JUEGO";
+        }
+
+        if (other.tag == "TarjetaBlanca")
+        {
+            tarjetaBlanca = true;
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "LectorBlanco")
+        {
+            if (tarjetaBlanca)
+            {
+                puertaTraje1.GetComponent<Animator>().Play("PuertaTraje1");
+                
+            }
+        }
+
+        if (other.tag == "LectorBlanco2")
+        {
+            if (tarjetaBlanca)
+            {
+                puertaTraje2.GetComponent<Animator>().Play("PuertaTraje2");
+            }
         }
     }
 
