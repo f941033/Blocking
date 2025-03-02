@@ -9,8 +9,9 @@ public class CardController : MonoBehaviour
     public GameObject linterna;
     public GameObject mirilla, visorTraje;
     bool mirillaEnPantalla=false;
-    public GameObject proyectil, textoPuertaAmarilla, textoPuertaNaranja;
+    public GameObject proyectil, textoPuertaAmarilla, textoPuertaNaranja, textoPressE;
     public TextMeshProUGUI textoFinal;
+    bool tengoTaser = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,7 +22,7 @@ public class CardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && tengoTaser)
         {
             mirillaEnPantalla = !mirillaEnPantalla;
             mirilla.SetActive(mirillaEnPantalla);            
@@ -79,6 +80,9 @@ public class CardController : MonoBehaviour
 
         if (other.tag == "Taser")
         {
+            tengoTaser = true;
+            textoPressE.SetActive(true) ;
+            Invoke("QuitarMirilla", 3f);
             Destroy(other.gameObject);
             mirillaEnPantalla = !mirillaEnPantalla;
             mirilla.SetActive(mirillaEnPantalla);
@@ -91,4 +95,11 @@ public class CardController : MonoBehaviour
             textoFinal.text = "FIN DEL JUEGO";
         }
     }
+
+    private void QuitarMirilla()
+    {
+        textoPressE.SetActive(false) ;    
+    }
+
+
 }
